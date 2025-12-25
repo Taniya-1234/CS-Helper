@@ -17,7 +17,7 @@ A web-based platform that enables university students to upload images of Comput
 ![Response Modes](assets/images/Choose-Options.png)
 *Three learning modes: Direct Answer, Concept Explanation, and PDF Notes*
 
-![Domain Validation](assets/images/Vaildating-Question.png)
+![Domain Validation](assets/images/Validating-Question.png)
 *Automatic CS domain validation*
 
 ![Direct Answer](assets/images/Direct-Answer.png)
@@ -52,56 +52,8 @@ A web-based platform that enables university students to upload images of Comput
 ## 🏗️ Architecture
 
 **System Architecture**
-┌─────────────────┐
-│   User uploads  │
-│  Question Image │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  Tesseract OCR      │
-│  (Text Extraction)  │
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐      ┌──────────────────┐
-│  Domain Validator   │─────▶│  Reject Non-CS   │
-│  (CS Check)         │      │  Questions       │
-└────────┬────────────┘      └──────────────────┘
-         │ ✓ CS Question
-         ▼
-┌─────────────────────┐
-│  MongoDB Cache      │
-│  Check              │
-└────────┬────────────┘
-         │
-    ┌────┴────┐
-    │         │
-    ▼         ▼
-┌────────┐ ┌──────────────────┐
-│ Cache  │ │  Google Gemini   │
-│  Hit   │ │  API Call        │
-└───┬────┘ └────────┬─────────┘
-    │               │
-    │               ▼
-    │      ┌──────────────────┐
-    │      │  Store in MongoDB│
-    │      │  for Future Use  │
-    │      └────────┬─────────┘
-    │               │
-    └───────┬───────┘
-            ▼
-   ┌─────────────────────────┐
-   │  User Selects Mode:     │
-   │  • Direct Answer        │
-   │  • Detailed Explanation │
-   │  • Study Notes          │
-   └──────────┬──────────────┘
-              ▼
-   ┌─────────────────────────┐
-   │  Display Response       │
-   └─────────────────────────┘
-
+![System Architecture](assets/images/System-Architecture.png)
+*System Architecture Diagram for CS-Helper Project*
 The system follows this workflow:
 
 1. **Image Upload** → User uploads question image
