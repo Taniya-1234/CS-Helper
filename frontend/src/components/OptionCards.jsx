@@ -7,7 +7,6 @@ import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import { jsPDF } from "jspdf";
 import remarkGfm from "remark-gfm";
-// import "jspdf-autotable";
 import autoTable from "jspdf-autotable";
 
 const OptionCards = ({ isActive, questionData, onUploadAnother }) => {

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const HeroSection = ({ darkMode }) => {
   // Text color changes dynamically
-  const textClass = darkMode ? 'text-light' : 'text-dark';
+  const textClass = darkMode ? "text-light" : "text-dark";
 
   return (
     <section>
@@ -15,22 +15,13 @@ const HeroSection = ({ darkMode }) => {
 
           {/* Hero Description */}
           <p className="lead mb-4">
-            Upload any computer science question and get instant solutions, detailed
-            explanations, or comprehensive notes. Learning made simple and effective.
+            Upload any computer science question and get instant solutions,
+            detailed explanations, or comprehensive notes. Learning made simple
+            and effective.
           </p>
-
-          {/* Call to Action Buttons */}
-          {/* <div>
-            <button className="btn btn-primary btn-lg me-2">Get Started</button>
-            <button
-              className={`btn ${
-                darkMode ? 'btn-outline-light' : 'btn-outline-dark'
-              } btn-lg`}
-            >
-              Learn More
-            </button>
-          </div> */}
         </div>
+
+        <div className="bg-red-500 text-white p-4">Tailwind Test</div>
       </div>
     </section>
   );
