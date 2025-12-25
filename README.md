@@ -51,6 +51,7 @@ A web-based platform that enables university students to upload images of Comput
 
 ## 🏗️ Architecture
 ![System Architecture](assets/images/System-Architecture.png)
+
 The system follows this workflow:
 
 1. **Image Upload** → User uploads question image
