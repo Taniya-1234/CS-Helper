@@ -20,17 +20,17 @@ A web-based platform that enables university students to upload images of Comput
 ![Domain Validation](assets/images/Vaildating-Question.png)
 *Automatic CS domain validation*
 
-![Direct Answer](assets/images/Direct Answer.png)
+![Direct Answer](assets/images/Direct-Answer.png)
 *Direct Answer*
 
 ![Detailed-Answer](assets/images/Detailed-Answer.png)
 *Detailed-Answer*
 
-![PDF_Generation](assets/images/PDF_Generation.png)
+![PDF-Generation](assets/images/PDF-generation.png)
 *PDF_Generation*
 ### Video Demo
 
-🎥 **[Watch Full Demo Video]<video src="https://drive.google.com/file/d/1TgycjdQTufcAK-tQAJJWb-xDQPt13GfM/view?usp=sharing" controls></video>**
+🎥 **[Watch Full Demo Video](https://drive.google.com/file/d/1TgycjdQTufcAK-tQAJJWb-xDQPt13GfM/view?usp=sharing)**
 
 ---
 
@@ -51,7 +51,56 @@ A web-based platform that enables university students to upload images of Comput
 
 ## 🏗️ Architecture
 
-![System Architecture](architecture-diagram.png)
+**System Architecture**
+┌─────────────────┐
+│   User uploads  │
+│  Question Image │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────────┐
+│  Tesseract OCR      │
+│  (Text Extraction)  │
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐      ┌──────────────────┐
+│  Domain Validator   │─────▶│  Reject Non-CS   │
+│  (CS Check)         │      │  Questions       │
+└────────┬────────────┘      └──────────────────┘
+         │ ✓ CS Question
+         ▼
+┌─────────────────────┐
+│  MongoDB Cache      │
+│  Check              │
+└────────┬────────────┘
+         │
+    ┌────┴────┐
+    │         │
+    ▼         ▼
+┌────────┐ ┌──────────────────┐
+│ Cache  │ │  Google Gemini   │
+│  Hit   │ │  API Call        │
+└───┬────┘ └────────┬─────────┘
+    │               │
+    │               ▼
+    │      ┌──────────────────┐
+    │      │  Store in MongoDB│
+    │      │  for Future Use  │
+    │      └────────┬─────────┘
+    │               │
+    └───────┬───────┘
+            ▼
+   ┌─────────────────────────┐
+   │  User Selects Mode:     │
+   │  • Direct Answer        │
+   │  • Detailed Explanation │
+   │  • Study Notes          │
+   └──────────┬──────────────┘
+              ▼
+   ┌─────────────────────────┐
+   │  Display Response       │
+   └─────────────────────────┘
 
 The system follows this workflow:
 
@@ -91,12 +140,12 @@ The system follows this workflow:
 
 - Node.js (v18 or higher)
 - MongoDB (local installation or MongoDB Atlas account)
-- Google Gemini API key ([Get it here](https://ai.google.dev/))
+- Google Gemini API key ([Get it here](https://ai.google.dev/gemini-api/docs/api-key))
 
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/cs-helper.git
+git clone https://github.com/Taniya-1234/CS-Helper.git
 cd cs-helper
 ```
 
@@ -112,13 +161,12 @@ Create a `.env` file in the backend directory:
 ```env
 MONGODB_URI=your_mongodb_connection_string
 GEMINI_API_KEY=your_gemini_api_key
-PORT=5000
 ```
 
 Start the backend server:
 
 ```bash
-npm start
+nodemon server.js
 ```
 
 ### Step 3: Frontend Setup
@@ -131,7 +179,7 @@ npm install
 Create a `.env` file in the frontend directory:
 
 ```env
-VITE_API_URL=http://localhost:5000
+VITE_BACKEND_URL=http://localhost:5000
 ```
 
 Start the React application:
@@ -233,38 +281,19 @@ Contributions are welcome! To contribute:
 
 ---
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 🙏 Acknowledgments
-
-- **Google Gemini** - AI response generation
-- **Tesseract OCR** - Text extraction technology
-- **MongoDB** - Database solution
-- **React & Node.js Communities** - Documentation and support
-
----
-
 ## 👨‍💻 About the Developer
 
-**[Your Name]**
+**[Taniya Ghuse]**
 
-I'm a full-stack developer passionate about building educational technology solutions. CS Helper was developed to help university students get instant, personalized learning support for Computer Science questions.
+I'm a full-stack developer passionate about building educational technology solutions. CS Helper was developed to help university students get instant learning support for Computer Science questions.
 
-- 🔗 LinkedIn: [Your LinkedIn Profile](your-linkedin-url)
-- 💼 Portfolio: [Your Portfolio](your-portfolio-url)
-- 📧 Email: [your.email@example.com](mailto:your.email@example.com)
-- 🐙 GitHub: [@yourusername](https://github.com/yourusername)
+- 🔗 LinkedIn: [Taniya Ghuse](https://www.linkedin.com/in/taniya-ghuse/)
+- 🐙 GitHub: [Taniya-1234](https://github.com/Taniya-1234)
 
 ---
 
 <div align="center">
 
 **If you find this project helpful, please consider giving it a ⭐ star!**
-
-Built with ❤️ for CS students worldwide
 
 </div>
