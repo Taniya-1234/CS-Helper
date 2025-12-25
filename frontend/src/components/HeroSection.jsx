@@ -20,8 +20,6 @@ const HeroSection = ({ darkMode }) => {
             and effective.
           </p>
         </div>
-
-        <div className="bg-red-500 text-white p-4">Tailwind Test</div>
       </div>
     </section>
   );
