@@ -37,7 +37,8 @@ A web-based platform that enables university students to upload images of Comput
 🔗 **Live Website:** https://cs-helper-psi.vercel.app/  
 🔗 **Backend Hosted On:** Render (Free Tier)
 
-⚠️ **Note:** The backend may take **30–60 seconds** to respond on the first request as it is hosted on Render’s free plan. Render automatically spins down inactive services after ~15 minutes of no traffic.
+⚠️ **Note:** The backend may take **30–60 seconds** to respond on the first request as it is hosted on Render’s free plan. Render automatically spins down inactive services after ~15 minutes of no traffic. 
+
 ---
 
 ## ✨ Features
