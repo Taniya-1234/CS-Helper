@@ -20,7 +20,7 @@ const Navbar = ({ onNavigate }) => {
       <div className="container">
         
         {/* Brand */}
-        <a className="navbar-brand d-flex align-items-center" href="home">
+        <div className="navbar-brand d-flex align-items-center">
           <img
             src="/logo_final.png"
             alt="logo"
@@ -32,7 +32,7 @@ const Navbar = ({ onNavigate }) => {
             }}
           />
           <span className="fw-bold fs-5">CS Helper</span>
-        </a>
+        </div>
 
         {/* Mobile-toggler */}
         <button
